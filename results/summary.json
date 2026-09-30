@@ -1,0 +1,1213 @@
+{
+ "table1": [
+  {
+   "method": "soft_penalty",
+   "seeds": 5,
+   "collision_episodes_train": [
+    447.4,
+    261.7484288396016
+   ],
+   "collision_steps_train": [
+    447.4,
+    261.7484288396016
+   ],
+   "episodes_train": [
+    50226.4,
+    126.65638554766988
+   ],
+   "steps_to_80pct_success": [
+    2985984.0,
+    215040.0
+   ],
+   "n_seeds_reached_80": 2,
+   "final_success": [
+    0.39375,
+    0.4823445345393684
+   ],
+   "final_interv_train": [
+    0.0,
+    0.0
+   ],
+   "mean_interv_whole_training": [
+    0.0,
+    0.0
+   ],
+   "final_interv_eval": [
+    0.0,
+    0.0
+   ],
+   "final_filter_off_collision": [
+    0.009375,
+    0.01686486964447102
+   ]
+  },
+  {
+   "method": "filter_only",
+   "seeds": 5,
+   "collision_episodes_train": [
+    0.0,
+    0.0
+   ],
+   "collision_steps_train": [
+    0.0,
+    0.0
+   ],
+   "episodes_train": [
+    50041.8,
+    20.643643089338664
+   ],
+   "steps_to_80pct_success": [
+    1818624.0,
+    92160.0
+   ],
+   "n_seeds_reached_80": 2,
+   "final_success": [
+    0.4,
+    0.48989794855663565
+   ],
+   "final_interv_train": [
+    0.5903938802083333,
+    0.06932276136541896
+   ],
+   "mean_interv_whole_training": [
+    0.35943200364823347,
+    0.1531575708364811
+   ],
+   "final_interv_eval": [
+    0.683687961101532,
+    0.04340270599477458
+   ],
+   "final_filter_off_collision": [
+    0.82734375,
+    0.1466878794733055
+   ]
+  },
+  {
+   "method": "filter_rp",
+   "seeds": 10,
+   "collision_episodes_train": [
+    0.0,
+    0.0
+   ],
+   "collision_steps_train": [
+    0.0,
+    0.0
+   ],
+   "episodes_train": [
+    50039.0,
+    27.003703449712226
+   ],
+   "steps_to_80pct_success": [
+    1902006.857142857,
+    872873.508193554
+   ],
+   "n_seeds_reached_80": 7,
+   "final_success": [
+    0.69921875,
+    0.45775183578448103
+   ],
+   "final_interv_train": [
+    0.025413411458333333,
+    0.028142948969456905
+   ],
+   "mean_interv_whole_training": [
+    0.03751782614087301,
+    0.023870700272805485
+   ],
+   "final_interv_eval": [
+    0.008017097879201174,
+    0.01359873362998678
+   ],
+   "final_filter_off_collision": [
+    0.0046875,
+    0.010452412625202852
+   ]
+  },
+  {
+   "method": "frl",
+   "seeds": 10,
+   "collision_episodes_train": [
+    0.0,
+    0.0
+   ],
+   "collision_steps_train": [
+    0.0,
+    0.0
+   ],
+   "episodes_train": [
+    50056.4,
+    31.91927317468241
+   ],
+   "steps_to_80pct_success": [
+    1972224.0,
+    703212.9418604296
+   ],
+   "n_seeds_reached_80": 4,
+   "final_success": [
+    0.3984375,
+    0.4879936653101273
+   ],
+   "final_interv_train": [
+    0.011385091145833335,
+    0.012068162470781395
+   ],
+   "mean_interv_whole_training": [
+    0.010552075332821301,
+    0.0066364022756690766
+   ],
+   "final_interv_eval": [
+    0.002593904541572556,
+    0.0026678441801367522
+   ],
+   "final_filter_off_collision": [
+    0.0,
+    0.0
+   ]
+  }
+ ],
+ "table2": {
+  "soft_penalty": {
+   "filter_on": {
+    "success_rate": [
+     0.31480000019073484,
+     0.3986082833272082
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.2770919740200043,
+     0.1435356094568387
+    ],
+    "margin_violation_rate": [
+     0.022279414162039757,
+     0.013725282548849716
+    ],
+    "min_clearance_mean": [
+     0.06918308138847351,
+     0.0593541137518703
+    ]
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.3653999924659729,
+     0.44992958579736564
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.1288810431957245,
+     0.06515816555028316
+    ],
+    "margin_violation_rate": [
+     0.34813144207000735,
+     0.1781538402538459
+    ],
+    "min_clearance_mean": [
+     0.06002037078142166,
+     0.06394500770990019
+    ]
+   },
+   "approx_model": {
+    "success_rate": [
+     0.39479999542236327,
+     0.48359916738686154
+    ],
+    "collision_episode_rate": [
+     0.004800000041723251,
+     0.009600000083446502
+    ],
+    "intervention_rate": [
+     0.0005580441094934941,
+     0.0011160882189869882
+    ],
+    "margin_violation_rate": [
+     0.42794013023376465,
+     0.22429242619673498
+    ],
+    "min_clearance_mean": [
+     0.0565826166421175,
+     0.06568052669207172
+    ]
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.30820000171661377,
+     0.3866566446202755
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.31460041403770445,
+     0.16091520416886332
+    ],
+    "margin_violation_rate": [
+     0.18835150301456452,
+     0.09444796713788607
+    ],
+    "min_clearance_mean": [
+     0.06414855644106865,
+     0.06483954328992655
+    ]
+   },
+   "filter_off": {
+    "success_rate": [
+     0.39479999542236327,
+     0.48359916738686154
+    ],
+    "collision_episode_rate": [
+     0.006400000303983688,
+     0.012800000607967377
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.4279351234436035,
+     0.22428879957060766
+    ],
+    "min_clearance_mean": [
+     0.056548063084483145,
+     0.06569883997679296
+    ]
+   },
+   "seeds": 5
+  },
+  "filter_only": {
+   "filter_on": {
+    "success_rate": [
+     0.4,
+     0.48989794855663565
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.6803589344024659,
+     0.04498900012787972
+    ],
+    "margin_violation_rate": [
+     0.05065324120223522,
+     0.046496791887590504
+    ],
+    "min_clearance_mean": [
+     0.03924703225493431,
+     0.00036059952468596044
+    ]
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.398199999332428,
+     0.4876943296567475
+    ],
+    "collision_episode_rate": [
+     0.01799999997019768,
+     0.02248555102318055
+    ],
+    "intervention_rate": [
+     0.2157724529504776,
+     0.031497375742185474
+    ],
+    "margin_violation_rate": [
+     0.6101468026638031,
+     0.07730952960426124
+    ],
+    "min_clearance_mean": [
+     0.012612478714436293,
+     0.0059282635631764365
+    ]
+   },
+   "approx_model": {
+    "success_rate": [
+     0.39280000925064085,
+     0.481100167217753
+    ],
+    "collision_episode_rate": [
+     0.7011999964714051,
+     0.1851922307508474
+    ],
+    "intervention_rate": [
+     0.38502069711685183,
+     0.08652259213762581
+    ],
+    "margin_violation_rate": [
+     0.6823042392730713,
+     0.04874607082691139
+    ],
+    "min_clearance_mean": [
+     0.0014628802484367043,
+     0.002098574653334095
+    ]
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.3941999912261963,
+     0.4828119195440959
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.6007988452911377,
+     0.07674456240395566
+    ],
+    "margin_violation_rate": [
+     0.3016867220401764,
+     0.04164769509520952
+    ],
+    "min_clearance_mean": [
+     0.030807563662528993,
+     0.0007195586405461051
+    ]
+   },
+   "filter_off": {
+    "success_rate": [
+     0.3920000076293945,
+     0.48011041329374904
+    ],
+    "collision_episode_rate": [
+     0.8146000027656555,
+     0.13473025579218947
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.5907439231872559,
+     0.1193506098278085
+    ],
+    "min_clearance_mean": [
+     -0.025243703834712507,
+     0.00701552950767613
+    ]
+   },
+   "seeds": 5
+  },
+  "filter_rp": {
+   "filter_on": {
+    "success_rate": [
+     0.6979000031948089,
+     0.4569081876934635
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.009029930108226836,
+     0.014838482601379535
+    ],
+    "margin_violation_rate": [
+     0.0016719203791581093,
+     0.0031933662657033283
+    ],
+    "min_clearance_mean": [
+     0.06574786528944969,
+     0.04722440322756205
+    ]
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.6955000042915345,
+     0.45546509489583964
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.006153793097473681,
+     0.009121543025124223
+    ],
+    "margin_violation_rate": [
+     0.01703252103179693,
+     0.02585158647254666
+    ],
+    "min_clearance_mean": [
+     0.06475031077861786,
+     0.04768906410049892
+    ]
+   },
+   "approx_model": {
+    "success_rate": [
+     0.6902000069618225,
+     0.45230936787099485
+    ],
+    "collision_episode_rate": [
+     0.005900000059045851,
+     0.01346439751654083
+    ],
+    "intervention_rate": [
+     0.0023262500006239863,
+     0.0043535167217343615
+    ],
+    "margin_violation_rate": [
+     0.02945978189818561,
+     0.04100304107199928
+    ],
+    "min_clearance_mean": [
+     0.06424348391592502,
+     0.04793441824727604
+    ]
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.6936000049114227,
+     0.45411941490084257
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.03439169360790402,
+     0.036024612401550034
+    ],
+    "margin_violation_rate": [
+     0.04307252753060311,
+     0.03420373883133209
+    ],
+    "min_clearance_mean": [
+     0.058523522689938545,
+     0.04764920707628229
+    ]
+   },
+   "filter_off": {
+    "success_rate": [
+     0.6902000069618225,
+     0.45230936787099485
+    ],
+    "collision_episode_rate": [
+     0.008600000175647438,
+     0.01962243663243523
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.029484782321378588,
+     0.04104690395103404
+    ],
+    "min_clearance_mean": [
+     0.06405312232673169,
+     0.048020567983922846
+    ]
+   },
+   "seeds": 10
+  },
+  "frl": {
+   "filter_on": {
+    "success_rate": [
+     0.39829999804496763,
+     0.4878216966234888
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0023164303242083407,
+     0.0025531820168842078
+    ],
+    "margin_violation_rate": [
+     0.0011000893413438463,
+     0.0015980624027268878
+    ],
+    "min_clearance_mean": [
+     0.06249957159161568,
+     0.039571387791807404
+    ]
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.39829999804496763,
+     0.4878216966234888
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0011613505630521104,
+     0.0013736931667078895
+    ],
+    "margin_violation_rate": [
+     0.0029764669856376714,
+     0.003584906393085365
+    ],
+    "min_clearance_mean": [
+     0.06233546771109104,
+     0.039633030886727136
+    ]
+   },
+   "approx_model": {
+    "success_rate": [
+     0.39829999804496763,
+     0.4878216966234888
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     8.749999688006938e-06,
+     2.6249999064020812e-05
+    ],
+    "margin_violation_rate": [
+     0.004895499572376139,
+     0.005756107980056356
+    ],
+    "min_clearance_mean": [
+     0.06225450113415718,
+     0.039663299295058914
+    ]
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.3859000027179718,
+     0.47277763613661417
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.011526062083430589,
+     0.01223470760871683
+    ],
+    "margin_violation_rate": [
+     0.02318917503580451,
+     0.018881317540456126
+    ],
+    "min_clearance_mean": [
+     0.05576563701033592,
+     0.040178600152664966
+    ]
+   },
+   "filter_off": {
+    "success_rate": [
+     0.39829999804496763,
+     0.4878216966234888
+    ],
+    "collision_episode_rate": [
+     0.00010000000474974513,
+     0.0003000000142492354
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.004895499572376139,
+     0.005756107980056356
+    ],
+    "min_clearance_mean": [
+     0.062253214046359064,
+     0.039663703104549
+    ]
+   },
+   "seeds": 10
+  }
+ },
+ "table2_solved": {
+  "soft_penalty": {
+   "n": 2,
+   "total": 5,
+   "filter_on": {
+    "success_rate": [
+     0.7870000004768372,
+     0.1600000262260437
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.32766249775886536,
+     0.048500001430511475
+    ],
+    "margin_violation_rate": [
+     0.025093750096857548,
+     0.00905625056475401
+    ],
+    "collision_episodes": 0
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.9134999811649323,
+     0.07350000739097595
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.15404142439365387,
+     0.0037039220333099365
+    ],
+    "margin_violation_rate": [
+     0.3978831470012665,
+     0.02090814709663391
+    ],
+    "collision_episodes": 0
+   },
+   "approx_model": {
+    "success_rate": [
+     0.9869999885559082,
+     0.013000011444091797
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.46973124146461487,
+     0.052106231451034546
+    ],
+    "collision_episodes": 0
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.7705000042915344,
+     0.13249999284744263
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.42095978558063507,
+     0.006226643919944763
+    ],
+    "margin_violation_rate": [
+     0.24223803728818893,
+     0.005978666245937347
+    ],
+    "collision_episodes": 0
+   },
+   "filter_off": {
+    "success_rate": [
+     0.9869999885559082,
+     0.013000011444091797
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.46973124146461487,
+     0.052106231451034546
+    ],
+    "collision_episodes": 0
+   }
+  },
+  "filter_only": {
+   "n": 2,
+   "total": 5,
+   "filter_on": {
+    "success_rate": [
+     1.0,
+     0.0
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.6463187336921692,
+     0.030456244945526123
+    ],
+    "margin_violation_rate": [
+     0.02974999975413084,
+     0.008550000376999378
+    ],
+    "collision_episodes": 0
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.99549999833107,
+     0.0014999806880950928
+    ],
+    "collision_episode_rate": [
+     0.01899999938905239,
+     0.01899999938905239
+    ],
+    "intervention_rate": [
+     0.19080624729394913,
+     0.03292336314916611
+    ],
+    "margin_violation_rate": [
+     0.5420546382665634,
+     0.06709559261798859
+    ],
+    "collision_episodes": 38
+   },
+   "approx_model": {
+    "success_rate": [
+     0.9820000231266022,
+     0.006999999284744263
+    ],
+    "collision_episode_rate": [
+     0.7599999904632568,
+     0.17900002002716064
+    ],
+    "intervention_rate": [
+     0.4110178053379059,
+     0.09319916367530823
+    ],
+    "margin_violation_rate": [
+     0.6745238602161407,
+     0.025964826345443726
+    ],
+    "collision_episodes": 1520
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.9854999780654907,
+     0.0065000057220458984
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.5886602401733398,
+     0.06450653076171875
+    ],
+    "margin_violation_rate": [
+     0.2836752086877823,
+     0.005136951804161072
+    ],
+    "collision_episodes": 0
+   },
+   "filter_off": {
+    "success_rate": [
+     0.9800000190734863,
+     0.004999995231628418
+    ],
+    "collision_episode_rate": [
+     0.8765000104904175,
+     0.08550000190734863
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.5300089418888092,
+     0.14889219403266907
+    ],
+    "collision_episodes": 1753
+   }
+  },
+  "filter_rp": {
+   "n": 7,
+   "total": 10,
+   "filter_on": {
+    "success_rate": [
+     0.9970000045640128,
+     0.00575699204577142
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0058300693220059785,
+     0.00837906090451008
+    ],
+    "margin_violation_rate": [
+     0.0008055393762853262,
+     0.0010162806260487366
+    ],
+    "collision_episodes": 0
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.993571434702192,
+     0.014130591873157477
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.005151738146586078,
+     0.007658849638535417
+    ],
+    "margin_violation_rate": [
+     0.015148688939266972,
+     0.024184967519194547
+    ],
+    "collision_episodes": 0
+   },
+   "approx_model": {
+    "success_rate": [
+     0.9860000099454608,
+     0.0245706022149801
+    ],
+    "collision_episode_rate": [
+     0.008428571512922645,
+     0.015416662078796257
+    ],
+    "intervention_rate": [
+     0.0033232142866056946,
+     0.004874704339097861
+    ],
+    "margin_violation_rate": [
+     0.024676785272146975,
+     0.03154768033865741
+    ],
+    "collision_episodes": 59
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.9908571498734611,
+     0.008184112156953851
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0327007266293679,
+     0.025788969781288012
+    ],
+    "margin_violation_rate": [
+     0.04495359691126006,
+     0.021794595079401947
+    ],
+    "collision_episodes": 0
+   },
+   "filter_off": {
+    "success_rate": [
+     0.9860000099454608,
+     0.0245706022149801
+    ],
+    "collision_episode_rate": [
+     0.012285714536639196,
+     0.022467210242040053
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.024712500162422657,
+     0.03163445515690095
+    ],
+    "collision_episodes": 86
+   }
+  },
+  "frl": {
+   "n": 4,
+   "total": 10,
+   "filter_on": {
+    "success_rate": [
+     0.9957499951124191,
+     0.0037666406409580617
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0013187500007916242,
+     0.0009823640307531354
+    ],
+    "margin_violation_rate": [
+     0.0003499999984342139,
+     0.00026969311110721744
+    ],
+    "collision_episodes": 0
+   },
+   "reduced_rate": {
+    "success_rate": [
+     0.9957499951124191,
+     0.0037666406409580617
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.0006624999878113158,
+     0.0006663801238213054
+    ],
+    "margin_violation_rate": [
+     0.0017406249971827492,
+     0.0014599704250951688
+    ],
+    "collision_episodes": 0
+   },
+   "approx_model": {
+    "success_rate": [
+     0.9957499951124191,
+     0.0037666406409580617
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     2.1874999220017344e-05,
+     3.78886100645996e-05
+    ],
+    "margin_violation_rate": [
+     0.002818749999278225,
+     0.0027306492719891395
+    ],
+    "collision_episodes": 0
+   },
+   "noisy_filter_on": {
+    "success_rate": [
+     0.9647500067949295,
+     0.01874000295682974
+    ],
+    "collision_episode_rate": [
+     0.0,
+     0.0
+    ],
+    "intervention_rate": [
+     0.006452687026467174,
+     0.0031289752441921947
+    ],
+    "margin_violation_rate": [
+     0.018690276192501187,
+     0.004660747018697929
+    ],
+    "collision_episodes": 0
+   },
+   "filter_off": {
+    "success_rate": [
+     0.9957499951124191,
+     0.0037666406409580617
+    ],
+    "collision_episode_rate": [
+     0.0002500000118743628,
+     0.00043301272245921906
+    ],
+    "intervention_rate": [
+     0.0,
+     0.0
+    ],
+    "margin_violation_rate": [
+     0.002818749999278225,
+     0.0027306492719891395
+    ],
+    "collision_episodes": 1
+   }
+  }
+ },
+ "table3": {
+  "frl": {
+   "final_success": [
+    0.3984375,
+    0.4879936653101273
+   ],
+   "seeds": 10,
+   "interv_whole_training": [
+    0.010552075332821301,
+    0.0066364022756690766
+   ],
+   "l_feas_mean": [
+    0.009886350050396751,
+    0.006170222389308058
+   ],
+   "filter_on_intervention": [
+    0.0023164303242083407,
+    0.0025531820168842078
+   ],
+   "filter_off_collision": [
+    0.00010000000474974513,
+    0.0003000000142492354
+   ],
+   "seconds_per_1M_steps": [
+    259.14404622917635,
+    14.12930057762625
+   ]
+  },
+  "frl_direct": {
+   "final_success": [
+    0.9973958333333334,
+    0.003682847818679935
+   ],
+   "seeds": 3,
+   "interv_whole_training": [
+    0.06247424835189452,
+    0.023843010256106675
+   ],
+   "l_feas_mean": [
+    0.12672620947720037,
+    0.045430685069143044
+   ],
+   "filter_on_intervention": [
+    0.0005458397572510876,
+    0.0007024107052353969
+   ],
+   "filter_off_collision": [
+    0.0,
+    0.0
+   ],
+   "seconds_per_1M_steps": [
+    261.3765561544988,
+    11.396818602307356
+   ]
+  },
+  "frl_meanproj": {
+   "final_success": [
+    0.5572916666666666,
+    0.4151951554920857
+   ],
+   "seeds": 3,
+   "interv_whole_training": [
+    0.020841167168032085,
+    0.011284711063249941
+   ],
+   "l_feas_mean": [
+    0.006732389460516497,
+    0.0024254387956423474
+   ],
+   "filter_on_intervention": [
+    0.006008333410136402,
+    0.005890266848723627
+   ],
+   "filter_off_collision": [
+    0.0,
+    0.0
+   ],
+   "seconds_per_1M_steps": [
+    314.6967727792349,
+    3.483943974439698
+   ]
+  }
+ },
+ "table4": {
+  "filter_only": {
+   "seeds": 5,
+   "final_success": [
+    0.4,
+    0.48989794855663565
+   ],
+   "steps_to_80pct_success": [
+    1818624.0,
+    92160.0
+   ],
+   "n80": 2,
+   "mean_interv_whole_training": [
+    0.35943200364823347,
+    0.1531575708364811
+   ],
+   "filter_off_collision": [
+    0.8146000027656555,
+    0.13473025579218947
+   ]
+  },
+  "filter_rp": {
+   "seeds": 10,
+   "final_success": [
+    0.69921875,
+    0.45775183578448103
+   ],
+   "steps_to_80pct_success": [
+    1902006.857142857,
+    872873.508193554
+   ],
+   "n80": 7,
+   "mean_interv_whole_training": [
+    0.03751782614087301,
+    0.023870700272805485
+   ],
+   "filter_off_collision": [
+    0.008600000175647438,
+    0.01962243663243523
+   ]
+  },
+  "frl_noRP": {
+   "seeds": 5,
+   "final_success": [
+    0.99453125,
+    0.005846339666834283
+   ],
+   "steps_to_80pct_success": [
+    1751040.0,
+    879772.7450563583
+   ],
+   "n80": 5,
+   "mean_interv_whole_training": [
+    0.02280525953661034,
+    0.004536258738108021
+   ],
+   "filter_off_collision": [
+    0.0,
+    0.0
+   ]
+  },
+  "frl": {
+   "seeds": 10,
+   "final_success": [
+    0.3984375,
+    0.4879936653101273
+   ],
+   "steps_to_80pct_success": [
+    1972224.0,
+    703212.9418604296
+   ],
+   "n80": 4,
+   "mean_interv_whole_training": [
+    0.010552075332821301,
+    0.0066364022756690766
+   ],
+   "filter_off_collision": [
+    0.00010000000474974513,
+    0.0003000000142492354
+   ]
+  }
+ },
+ "stats": {
+  "soft_penalty": {
+   "frl_solved": "4/10",
+   "base_solved": "2/5",
+   "fisher_p_solved": 1.0
+  },
+  "filter_only": {
+   "frl_solved": "4/10",
+   "base_solved": "2/5",
+   "fisher_p_solved": 1.0,
+   "perm_p_interventions": 0.00024998750062496874,
+   "perm_p_filter_off_collisions": 0.00024998750062496874
+  },
+  "filter_rp": {
+   "frl_solved": "4/10",
+   "base_solved": "7/10",
+   "fisher_p_solved": 0.36984996427720884,
+   "perm_p_interventions": 0.004449777511124443,
+   "perm_p_filter_off_collisions": 0.033948302584870756
+  },
+  "frl_noRP": {
+   "frl_solved": "4/10",
+   "base_solved": "5/5",
+   "fisher_p_solved": 0.04395604395604396,
+   "perm_p_interventions": 0.005499725013749313,
+   "perm_p_filter_off_collisions": 1.0
+  }
+ }
+}

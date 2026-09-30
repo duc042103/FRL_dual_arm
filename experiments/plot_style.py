@@ -7,7 +7,7 @@ COLORS = {
     "filter_only": "#7f7f7f",
     "filter_rp": "#ff7f0e",
     "frl": "#1f77b4",
-    "frl_noRP": "#17becf",
+    "frl_noRP": "#08306b",
     "frl_direct": "#9467bd",
     "frl_meanproj": "#2ca02c",
     "frl_sched": "#8c564b",
@@ -21,10 +21,10 @@ LABELS = {
     "soft_penalty": "Soft penalty (no filter)",
     "filter_only": "Hard filter only",
     "filter_rp": "Hard filter + reward penalty",
-    "frl": "FRL (proposed)",
-    "frl_noRP": "FRL w/o reward penalty",
-    "frl_direct": "FRL, direct target a_feas",
-    "frl_meanproj": "FRL, projected-mean target",
+    "frl": "FRL, full (L_feas + c_t reward penalty)",
+    "frl_noRP": "FRL, L_feas only (w2 = 0)",
+    "frl_direct": "FRL full, direct target a_feas",
+    "frl_meanproj": "FRL full, projected-mean target",
     "frl_sched": "FRL + lambda schedule",
 }
 

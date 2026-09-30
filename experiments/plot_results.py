@@ -25,7 +25,7 @@ import numpy as np  # noqa: E402
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from experiments.plot_style import COLORS, LABELS, apply_style  # noqa: E402
 
-MAIN = ["soft_penalty", "filter_only", "filter_rp", "frl"]
+MAIN = ["soft_penalty", "filter_only", "filter_rp", "frl", "frl_noRP"]
 FACT = ["filter_only", "filter_rp", "frl_noRP", "frl"]
 ABL = ["frl", "frl_direct", "frl_meanproj"]
 
@@ -196,6 +196,21 @@ def deployment_figure(dep, out_dir, summary, methods):
                                                       "margin_violation_rate", "min_clearance_mean"]} for c in conds}
         table[m]["seeds"] = len(agg[m]["filter_on"]["success_rate"])
     summary["table2"] = table
+    # Filter dependence among policies that actually solve the task (a policy that never
+    # approaches the other arm is trivially collision-free).
+    solved_tab = {}
+    for m in ms_:
+        native = "filter_off" if m == "soft_penalty" else "filter_on"  # soft penalty is trained without a filter
+        rows = [r for r in dep.values() if r["method"] == m and r[native]["success_rate"] >= 0.8]
+        if not rows:
+            solved_tab[m] = {"n": 0}
+            continue
+        solved_tab[m] = {"n": len(rows), "total": len([r for r in dep.values() if r["method"] == m])}
+        for c in conds:
+            solved_tab[m][c] = {k: ms([r[c][k] for r in rows]) for k in
+                                ["success_rate", "collision_episode_rate", "intervention_rate", "margin_violation_rate"]}
+            solved_tab[m][c]["collision_episodes"] = int(round(sum(r[c]["collision_episode_rate"] * 1000 for r in rows)))
+    summary["table2_solved"] = solved_tab
     return table
 
 
@@ -226,7 +241,8 @@ def ablation_figure(runs, dep, out_dir, summary):
         ax.text(i, max(pts) + 0.4, f"{np.mean(tpi[m]):.0f} s / 1M steps", ha="center", fontsize=8.5)
     ax.set_ylim(0, max(max(v) for v in whole.values()) * 1.25)
     ax.set_xticks(x)
-    ax.set_xticklabels([LABELS[m].replace("FRL, ", "") for m in ms_], fontsize=8.5)
+    ax.set_xticklabels({"frl": "correction-displacement\n(Eq. 5, claimed)", "frl_direct": "direct target a_feas",
+                        "frl_meanproj": "projected mean"}[m] for m in ms_)
     ax.set_ylabel("intervention rate, whole training [%]")
     ax.set_title("(c) Filter interventions over the whole training\n(dots = seeds; label = training wall-clock)")
     fig.tight_layout()
@@ -270,6 +286,58 @@ def factorial_table(runs, dep, summary):
     summary["table4"] = rows
 
 
+def fisher_two_sided(a, n1, b, n2):
+    """Two-sided Fisher exact test for a/n1 vs b/n2 successes."""
+    from math import comb
+    K, N = a + b, n1 + n2
+    def pmf(k):
+        return comb(n1, k) * comb(n2, K - k) / comb(N, K)
+    p0 = pmf(a)
+    return float(sum(pmf(k) for k in range(max(0, K - n2), min(K, n1) + 1) if pmf(k) <= p0 * (1 + 1e-9)))
+
+
+def permutation_p(x, y, n=20000, seed=0):
+    """Two-sided permutation test on the difference of means."""
+    rng = np.random.default_rng(seed)
+    x, y = np.asarray(x, float), np.asarray(y, float)
+    obs = abs(x.mean() - y.mean())
+    z = np.concatenate([x, y])
+    cnt = 0
+    for _ in range(n):
+        rng.shuffle(z)
+        cnt += abs(z[:len(x)].mean() - z[len(x):].mean()) >= obs - 1e-12
+    return float((cnt + 1) / (n + 1))
+
+
+def stats_table(runs, dep, summary):
+    """Each FRL variant vs. each baseline: seeds that solve the task and filter reliance."""
+    def solved(r):
+        return np.mean([row["eval_on_success_rate"] for row in r["log"][-10:] if "eval_on_success_rate" in row]) >= 0.8
+    def whole(r):
+        return np.mean([row["intervention_rate"] for row in r["log"]])
+    out = {}
+    for f in ["frl_noRP", "frl"]:
+        if f not in runs:
+            continue
+        f_s = [solved(r) for r in runs[f]]
+        f_i = [whole(r) for r in runs[f]]
+        f_off = [d["filter_off"]["collision_episode_rate"] for d in dep.values() if d["method"] == f]
+        for m in ["soft_penalty", "filter_only", "filter_rp"]:
+            if m not in runs:
+                continue
+            b_s = [solved(r) for r in runs[m]]
+            row = {"frl": f, "base": m, "frl_solved": f"{sum(f_s)}/{len(f_s)}", "base_solved": f"{sum(b_s)}/{len(b_s)}",
+                   "fisher_p_solved": fisher_two_sided(sum(f_s), len(f_s), sum(b_s), len(b_s))}
+            if m != "soft_penalty":
+                b_i = [whole(r) for r in runs[m]]
+                b_off = [d["filter_off"]["collision_episode_rate"] for d in dep.values() if d["method"] == m]
+                row["perm_p_interventions"] = permutation_p(f_i, b_i)
+                if b_off and f_off:
+                    row["perm_p_filter_off_collisions"] = permutation_p(f_off, b_off)
+            out[f"{f}_vs_{m}"] = row
+    summary["stats"] = out
+
+
 def write_tables(summary, out_dir):
     L = []
     if "table1" in summary:
@@ -296,6 +364,24 @@ def write_tables(summary, out_dir):
             cells = [f"{fmt(*t[c]['success_rate'], pct=True)} / {fmt(*t[c]['collision_episode_rate'], pct=True)}" for c in conds]
             L.append(f"| {LABELS[m]} | " + " | ".join(cells) + " |")
         L.append("")
+    if "table2_solved" in summary:
+        L.append("### Table 2b - Filter dependence among the seeds that solve the task "
+                 "(success >= 80% in the training configuration)\n")
+        L.append("| Method | Solved seeds | Runtime intervention, nominal filter | Filter removed: success / collision episodes | "
+                 "Filter removed: steps inside the 4 cm margin | "
+                 "Approximate filter: success / collision episodes | Filter every 3rd cycle: collision episodes |")
+        L.append("|---|---|---|---|---|---|---|")
+        for m, t in summary["table2_solved"].items():
+            if t["n"] == 0:
+                L.append(f"| {LABELS[m]} | 0 | - | - | - | - | - |")
+                continue
+            ne = t["n"] * 1000
+            L.append(f"| {LABELS[m]} | {t['n']}/{t['total']} | {fmt(*t['filter_on']['intervention_rate'], pct=True)} | "
+                     f"{fmt(*t['filter_off']['success_rate'], pct=True)} / {t['filter_off']['collision_episodes']} of {ne} | "
+                     f"{fmt(*t['filter_off']['margin_violation_rate'], pct=True)} | "
+                     f"{fmt(*t['approx_model']['success_rate'], pct=True)} / {t['approx_model']['collision_episodes']} of {ne} | "
+                     f"{t['reduced_rate']['collision_episodes']} of {ne} |")
+        L.append("")
     if "table3" in summary:
         L.append("### Table 3 - Eq. (5) target form in the dual-arm task\n")
         L.append("| Target | Seeds | Filter interventions, whole training | Final success | "
@@ -305,6 +391,17 @@ def write_tables(summary, out_dir):
             L.append(f"| {LABELS[m]} | {t['seeds']} | {fmt(*t['interv_whole_training'], pct=True)} | {fmt(*t['final_success'], pct=True)} | "
                      f"{fmt(*t['filter_on_intervention'], pct=True)} | {fmt(*t['filter_off_collision'], pct=True)} | "
                      f"{fmt(*t['seconds_per_1M_steps'], digits=0)} |")
+    if "stats" in summary:
+        L.append("")
+        L.append("### Statistical tests - FRL variants vs. each baseline (two-sided)\n")
+        L.append("| Comparison | Seeds solving the task (FRL / baseline) | Fisher exact p | "
+                 "Permutation p, interventions over training | Permutation p, collisions with filter removed |")
+        L.append("|---|---|---|---|---|")
+        for k, t in summary["stats"].items():
+            pi = f"{t['perm_p_interventions']:.4f}" if "perm_p_interventions" in t else "-"
+            pc = f"{t['perm_p_filter_off_collisions']:.4f}" if "perm_p_filter_off_collisions" in t else "-"
+            L.append(f"| {LABELS[t['frl']]} vs. {LABELS[t['base']]} | {t['frl_solved']} / {t['base_solved']} | "
+                     f"{t['fisher_p_solved']:.3f} | {pi} | {pc} |")
     if "table4" in summary and summary["table4"]:
         L.append("")
         L.append("### Table 4 - 2x2 factorial: what each ingredient contributes\n")
@@ -340,6 +437,7 @@ def main():
         deployment_figure(dep, a.out, summary, MAIN)
     ablation_figure(runs, dep, a.out, summary)
     factorial_table(runs, dep, summary)
+    stats_table(runs, dep, summary)
     with open(os.path.join(a.out, "summary.json"), "w") as fh:
         json.dump(summary, fh, indent=1)
     write_tables(summary, a.out)

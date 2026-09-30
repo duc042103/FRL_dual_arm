@@ -1,0 +1,68 @@
+{
+  "sigma": 0.5,
+  "grad_at_mu=-0.5": {
+    "corr_disp": 0.08382521761902732,
+    "direct": -0.1582025,
+    "mean_proj": 0.0
+  },
+  "E[eps|m=1]_at_mu=-0.5": 0.7627501070516128,
+  "grad_at_mu=-0.25": {
+    "corr_disp": 0.197476855568986,
+    "direct": -0.15424625,
+    "mean_proj": 0.0
+  },
+  "E[eps|m=1]_at_mu=-0.25": 0.571497561159916,
+  "grad_at_mu=0.0": {
+    "corr_disp": 0.3997736543656692,
+    "direct": 0.0,
+    "mean_proj": 0.0
+  },
+  "E[eps|m=1]_at_mu=0.0": 0.39868837677376695,
+  "grad_at_mu=0.25": {
+    "corr_disp": 0.6974404100987532,
+    "direct": 0.34601625,
+    "mean_proj": 0.5
+  },
+  "E[eps|m=1]_at_mu=0.25": 0.2545748682905915,
+  "dynamics_1d": {
+    "filter_only": {
+      "mu_eq": 34.005000000001644,
+      "mean_needs_correction": true,
+      "stochastic_intervention_rate": 1.0
+    },
+    "direct": {
+      "mu_eq": 0.15963989542466664,
+      "mean_needs_correction": true,
+      "stochastic_intervention_rate": 0.62468
+    },
+    "corr_disp": {
+      "mu_eq": -0.24553773355202158,
+      "mean_needs_correction": false,
+      "stochastic_intervention_rate": 0.312915
+    },
+    "mean_proj": {
+      "mu_eq": 0.09999999999999992,
+      "mean_needs_correction": true,
+      "stochastic_intervention_rate": 0.57993
+    }
+  },
+  "equilibrium": {
+    "critical_pressure_corr_disp (mean stays feasible below)": 0.3989422804014327,
+    "note": "for g > 0 the direct and projected-mean targets always settle with an infeasible mean",
+    "mu_star/sigma_at_g=0.1": {
+      "direct": 0.17553956074289156,
+      "corr_disp": -0.9023463475100346,
+      "mean_proj": 0.1
+    },
+    "mu_star/sigma_at_g=0.2": {
+      "direct": 0.31977894557206565,
+      "corr_disp": -0.4928873272068185,
+      "mean_proj": 0.2
+    },
+    "mu_star/sigma_at_g=0.4": {
+      "direct": 0.5612552391953216,
+      "corr_disp": 0.0021136569050038056,
+      "mean_proj": 0.4
+    }
+  }
+}
